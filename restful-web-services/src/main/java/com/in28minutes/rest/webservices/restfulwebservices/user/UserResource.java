@@ -1,8 +1,13 @@
 package com.in28minutes.rest.webservices.restfulwebservices.user;
 
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
 import java.net.URI;
 import java.util.List;
 
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,13 +36,27 @@ public class UserResource {
 
 	// GET /users
 	@GetMapping("/users/{id}")
-	public User retrieveUser(@PathVariable int id) {
+	public EntityModel<User>  retrieveUser(@PathVariable int id) {
 		User user = service.findOne(id);
 
 		if (user == null)
 			throw new UserNotFoundException("id:" + id);
 
-		return user;
+//		Response olaraq qayatradigim data icinde linkler olur
+		EntityModel<User> entityModel = EntityModel.of(user);
+
+//		Linkleri yaratdigim yer
+		WebMvcLinkBuilder link =  linkTo(methodOn(this.getClass()).retrieveAllUsers());
+		
+		
+		WebMvcLinkBuilder link1 =  linkTo(methodOn(this.getClass()).createUser(null));
+		
+		
+//		linkleri add edirik
+		entityModel.add(link.withRel("all-users"));
+		entityModel.add(link1.withRel("create-user"));
+		
+		return entityModel;
 	}
 
 	
