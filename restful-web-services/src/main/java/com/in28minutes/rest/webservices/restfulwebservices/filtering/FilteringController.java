@@ -23,10 +23,12 @@ public class FilteringController {
 
 		
 		
-//		Geriya qaytarmaq istediyimiz filterler
+//		Geriya qaytarmaq istediyimiz object's fields
 		SimpleBeanPropertyFilter filter = 
 				SimpleBeanPropertyFilter.filterOutAllExcept("field1","field3");
 		
+		
+//		Bean uzerinde filterleme edir
 		FilterProvider filters = 
 				new SimpleFilterProvider().addFilter("SomeBeanFilter", filter );
 		
