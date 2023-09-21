@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Anasayfa</a>
+        <!--/ deyende default index.html axtarilir  -->
+        <a href="./en-iyi-filmler.html">En iyi filmler</a>
+        <a href="./forms.html">Kayit Ol</a>
+      </nav>
+      <h1>Input Form please</h1>
+    </header>
+
+    <hr />
+
+    <section class="self-info">
+      <table cellspacing="10px">
+        <tr>
+          <td colspan="2"><h2>Account Information</h2></td>
+        </tr>
+
+        <tr>
+          <td><label for="username">Username:</label></td>
+          <td>
+            <input type="text" id="username" placeholder="Input username" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="mail">Mail:</label></td>
+          <td><input type="mail" id="mail" placeholder="Input mail" /></td>
+        </tr>
+
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td>
+            <input type="password" id="password" placeholder="Input password" />
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="10px">
+        <tr>
+          <td colspan="2"><h2>Personal Information</h2></td>
+        </tr>
+
+        <tr>
+          <td><label for="name">Name:</label></td>
+          <td><input type="text" id="name" placeholder="Input name" /></td>
+        </tr>
+
+        <tr>
+          <td><label for="surname">Surname:</label></td>
+          <td>
+            <input type="surname" id="surname" placeholder="Input surname" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="city">City:</label></td>
+          <td>
+            <select id="city">
+              <option value="10">Baku</option>
+              <option value="17">Shabran</option>
+              <option value="50">Sumgait</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="gender">Gender</label></td>
+          <td>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="gender" />
+            <label for="male">Female</label>
+            <input type="radio" name="gender" id="gender" />
+          </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save"></td>
+        </tr>
+      </table>
+    </section>
+  </body>
+</html>
