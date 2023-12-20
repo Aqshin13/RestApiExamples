@@ -1,0 +1,24 @@
+ public void checkLock(Lock lock1, Lock lock2) {
+
+        boolean locked1 = false;
+        boolean locked2 = false;
+
+        while (true) {
+            locked1 = lock1.tryLock();
+            locked2 = lock2.tryLock();
+
+            if (locked1 && locked2) {
+                // Her iki kilit de alındı, işlem tamamlandı
+                return;
+            }
+
+            if (locked1) {
+                lock1.unlock();
+            }
+
+            if (locked2) {
+                lock2.unlock();
+            }
+
+        }
+    }
